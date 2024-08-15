@@ -1,0 +1,231 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FUTURELOG</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+          <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+                <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Kalnia+Glaze:wght@100..700&family=Libre+Barcode+39+Extended+Text&family=Playwrite+CU:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Teko:wght@300..700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Kalnia+Glaze:wght@100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Barcode+39+Extended+Text&family=Playwrite+CU:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Teko:wght@300..700&display=swap'); 
+  body {
+      /* background-image: url("{% static 'todoMain/images/f.jpg' %}"); */
+      /* background-size: cover; */
+      /* background-repeat: no-repeat; */
+      color: #000000;
+    }
+    body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("{% static 'todoMain/images/f.jpg' %}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    filter: blur(2px);
+}
+    .container {
+      margin-top: 50px;
+    }
+                
+    .btn-custom-hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color:rgb(16, 172, 199);
+    /* border-color: #17a2b8; */
+    transition: transform 0.2s, background-color 0.2s, color 0.2s;
+    margin-right: 250px;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    }
+    .btn-custom-hover:hover {
+    background-color: rgb(0,0,0,0.1);
+    color: rgb(254, 255, 255); 
+    border-color: white;
+    }
+    .icon-custom{
+    color: rgb(16, 172, 199); 
+    font-size: 14px;
+    margin-left: 2px;
+    transition: color 0.2s; 
+    transition:transform 0.3s ease-in-out;
+    }
+    .btn-custom-hover:hover .icon-custom{
+    color: white;
+    transform: rotate(90deg);
+    }
+    .todo-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    }
+    .todo-card:hover{
+    box-shadow: 1px 2px 8px black;
+    transform: scale(1.01);
+    }
+    .todo-card .info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .todo-card .image {
+      width: 100px;
+      height: 100px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .todo-card .image img {
+      width: 120px;
+      height: 100px;
+    }
+    .todo-card .details {
+      max-width: 60%;
+      color: #333;
+    }
+    .todo-card .details .title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-family: "Lato", sans-serif;
+      font-weight: 600;
+      font-style: normal;
+    }
+    .todo-card .details .description {
+      margin: 5px 0;
+      color: #666;
+      width: 500px;
+      font-family: "Lato", sans-serif;
+      font-weight: 500;
+      font-style: normal;
+    }
+    .todo-card .details .date {
+      font-size: 0.9rem;
+      color: #827f7f;
+        font-family: "Lato", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+    .todo-card .details .status {
+      font-size: 1.1rem;
+      color:#2196F3;
+      font-family: "Lato", sans-serif;
+      font-weight: 500;
+      font-style: normal;
+    }
+    .todo-card .actions {
+      display: flex;
+      gap: 10px;
+    }
+    .todo-card .actions .btn {
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .todo-card .actions .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+    }
+    .todo-card .actions .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+    }
+    .nav-head{
+    font-size: 25px; 
+    margin-left: 200px;
+  font-family: "Bakbak One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    }
+    h1{
+      font-family: "Lato", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark " style="background-color:rgb(0 0 0/85%); height: 65px;">
+            <span class="navbar-brand mb-0 h1 nav-head"><i class="fa-regular fa-square-check" style="color: #ffffff; font-size: 23px; margin-right: 5px;"></i>FUTURE LOG</span>
+            <a href="{% url 'tadd' %}" class="btn px-3 py-1  btn-custom-hover">New Task<i class="fa-solid fa-plus icon-custom"></i></a>
+    </nav>
+    {% if messages %}
+    {% for i in messages %}
+        {% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+              <div class="alert alert-success alert-dismissible fade show">
+                  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                  <strong>{{i}}</strong>
+              </div>
+        {% endif %}
+        {% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+              <div class="alert alert-danger alert-dismissible fade show">
+                  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                  <strong>{{i}}</strong>
+              </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+  <div class="container">
+    <h1 class="my-4" style="color: rgb(255, 255, 255); text-shadow:1px 2px 3px #000000;" >My To-Do List</h1>
+    {% if data %}
+    {% for i in data %}
+    <div class="todo-card">
+      <div class="info">
+        <div class="image">
+          <img src="{{i.Image.url}}" alt="To-Do Image">
+        </div>
+        <div class="details">
+          <div class="title">{{i.Title}}</div>
+          <div class="description">{{i.Description}}</div>
+          <div class="date">Due Date:&nbsp;{{i.Date}}</div> 
+          <span class="status"><i class="fa-solid fa-bars-progress" style="color:#2196F3; margin-right: 3px; font-size: 15px;"></i>{{i.Status}}</span>
+        </div>
+      </div>
+      <div class="actions">
+        <a href="{% url 'tupd' i.id %}" class="btn btn-outline-primary">Update</a>
+        <a href="{% url 'tdel' i.id %}" class="btn btn-outline-danger">Delete</a>
+        {% if i.Status == 'Pending...' %}
+            <a href="{% url 'statusupd' i.id %}" class="btn btn-outline-success py-1 text-center"> <i class="fa-solid fa-check" style="color: rgb(0, 0, 0);"> </i></a>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="todo-card">
+      <div class="info">
+    <div style="color: #808080;">You have no current tasks...</div>
+    </div>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>

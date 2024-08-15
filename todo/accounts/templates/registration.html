@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up &bull; Future Log</title>
+    <link rel="website icon" type="png" href="./images/userround.png">
+    <!-- <link rel="stylesheet" href="mystyle.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Bebas+Neue&family=Kalnia+Glaze:wght@100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Barcode+39+Extended+Text&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+CU:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Teko:wght@300..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Kalnia+Glaze:wght@100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Barcode+39+Extended+Text&family=Playwrite+CU:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Teko:wght@300..700&display=swap');
+        * {
+        box-sizing: border-box;
+        }
+        @keyframes rotate {
+        100% {
+            background-position:0% 100%;
+        }
+        }
+        body {
+        background-image: url("{% static 'accounts/images/d.jpg' %}");
+        background-size: cover;
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        padding: 0 24px;
+        margin: 0;
+        background-color: #44770a;
+        background-repeat: repeat;
+        background-size: cover;
+        color: #f9f9f9;
+        /* animation: rotate 6s infinite alternate linear; */
+        }
+        body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgb(0 0 0 /35%);
+        }
+        .login-card {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        margin: 0 20px;
+        padding: 70px 30px 44px;
+        border-radius: 20px;
+        background: rgba(31, 30, 30, 0.66);
+        backdrop-filter: blur(10px);
+        text-align: center;
+        }
+        .login-card > h2 {
+        font-size: 36px;
+        font-weight: 400;
+        margin: 0 0 12px;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        }
+        .login-card > h3 {
+        color: rgb(255 255 255 /38%);
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0 0 48px;
+        font-family: "Lato", sans-serif;
+        /* font-weight: 700; */
+        font-style: normal;
+        }
+        .login-form {
+        width: 100%;
+        margin: 0;
+        display: grid;
+        gap: 15px;
+        }
+        .login-form > :is(input, button) {
+        width: 100%;
+        height: 56px;
+        border-radius: 6px;
+        border: 0;
+        }
+        .login-input {
+        color: rgba(255, 255, 255, 0.96);
+        background: rgba(255, 255, 255, 0.08);
+        font-family: "Lato", sans-serif;
+        /* font-weight: 700; */
+        font-style: normal;
+        font-size: 16px;
+        font-size: 16px;
+        padding: 15px 16px;
+        border: none;
+        border-radius: 4px;
+        /* margin-bottom: 10px; */
+        width: 100%; 
+        }
+        .login-input::placeholder {
+        color: rgba(255, 255, 255, 0.38);
+        }
+        .login-input > label {
+        display: none;
+        }
+        .login-form > button {
+        cursor: pointer;
+        width: 100%;
+        height: 56px;
+        padding: 0 16px;
+        color: #f9f9f9;
+        background: #264912;
+        border: 0;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-size: 18px;
+        text-align: center;
+        transition: all 0.375s;
+        margin-top: 30px;
+        }
+        a {
+        color: #5c8b0c;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        margin-top: 10px;
+        }
+        @media (width >=448px) {
+        .login-card {
+            margin: 0;
+            width: 70%;
+            min-width: 400px;
+        }
+        }
+        @media (width >=628px) {
+        .login-card {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0 44px;
+            width: 50%;
+            max-width: 500px;
+            min-width: auto;
+            display: flex;
+            justify-content: center;
+            border-radius: 0;
+            flex-direction: column;
+        }
+        }
+</style>
+</head>
+<body>
+    <div class="login-card">
+        <h2><i class="fa-regular fa-square-check" style="color: #ffffff; font-size: 30px; margin-right: 5px;"></i>FUTURELOG</h2>
+        <h3>Enter your credentials</h3>
+    <form class="login-form" action="" method="post">
+    {% csrf_token %}
+    {% if messages %}
+        {% for i in messages %}
+            {% if i.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                <div class="alert alert-warning alert-dismissible fade show">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>{{i}}</strong>
+                </div>
+                {% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>{{i}}</strong>
+                </div>
+            {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <div class="form-group">
+        {{ form.first_name }}
+    </div>
+    <div class="form-group">
+        {{ form.last_name }}
+    </div>
+    <div class="form-group">
+        {{ form.email }}
+    </div>
+    <div class="form-group">
+        {{ form.username }}
+    </div>
+    <div class="form-group">
+        {{ form.password1 }}
+    </div>
+    <div class="form-group">
+        {{ form.password2 }}
+    </div>
+    <button type="submit">Sign Up</button>
+    </form>
+</div>
+</body>
+</html>
